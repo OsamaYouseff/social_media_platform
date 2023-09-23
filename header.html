@@ -1,0 +1,118 @@
+<!-- header -->
+<div class="container-fluid">
+  <a
+    class="navbar-brand fw-bolder fs-4"
+    href="home.html"
+    style="width: 300px; padding-left: 20px"
+    >OSBOOK</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    style="transform: translateY(-3px)"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="home.html"
+          title="Home page"
+        >
+          <img id="home-btn" src="images/svg/home-a.svg" alt="home-btn" />
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="profile-link"
+          aria-current="page"
+          href=""
+          style="cursor: pointer"
+          onclick="showSignInMsg()"
+          title="profile page"
+        >
+          <i
+            class="bi bi-person-square"
+            id="pro-btn"
+            style="color: #b8bbbf"
+          ></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" title="friends page">
+          <img src="images/svg/friends.svg" alt="friends-btn" />
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" title="store page"
+          ><img src="images/svg/store.svg" alt="store btn"
+        /></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" title="videos page"
+          ><img src="images/svg/videos.svg" alt="videos btn" />
+        </a>
+      </li>
+    </ul>
+    <div class="__status gap-3 pr-4" style="min-width: 150px; height: 50px">
+      <!-- logout -->
+      <div id="usr-img" style="margin-left: 70px">
+        <i class="bi bi-person-circle fs-1" style="cursor: pointer"></i>
+      </div>
+      <button
+        type="button "
+        id="logout-btn"
+        onclick="logoutRequest()"
+        class="btn btn-danger"
+        style="min-width: 40px; padding: 3px 10px; display: none"
+        title="Log out"
+      >
+        Logout
+      </button>
+      <!-- logout -->
+
+      <!-- login -->
+      <button
+        type="button "
+        id="login-btn"
+        class="btn btn-primary"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#login-modal"
+        style="min-width: 90px; padding: 3px 10px; display: none"
+        title="Log in"
+      >
+        Login
+      </button>
+      <button
+        type="button "
+        id="register-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#register-modal"
+        class="btn btn-primary"
+        style="min-width: 90px; padding: 3px 10px"
+        title="Register"
+      >
+        Register
+      </button>
+      <!-- login -->
+    </div>
+  </div>
+  <!-- theme mode btn -->
+  <div class="theme-btn dark" onclick="toggleTheme()">
+    <i class="fa-solid fa-sun"></i>
+    <!-- <i class="fa-solid fa-moon"></i> -->
+  </div>
+  <!--// theme mode btn //-->
+</div>
+
+<!--// header //-->

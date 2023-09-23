@@ -1,0 +1,276 @@
+<!-- ========= Modals ============ -->
+<!-- Login Modal -->
+<div
+  class="modal fade"
+  id="login-modal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Login</h1>
+        <button
+          type="button"
+          class="btn-close bg-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="user-name" class="col-form-label">UserName:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="user-name"
+              value="osama996"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="user-password" class="col-form-label">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="user-password"
+              value="123456"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="close-btn"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button "
+          id="login-btn"
+          onclick="loginRequest()"
+          class="btn btn-primary"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// Login Modal //-->
+<!-- register Modal -->
+<div
+  class="modal fade"
+  id="register-modal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel2"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel2">Login</h1>
+        <button
+          type="button"
+          class="btn-close bg-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="user-name-rg" class="col-form-label">UserName:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="user-name-rg"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="user-password-rg" class="col-form-label"
+              >Password:</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="user-password-rg"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email-rg" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="email-rg" required />
+          </div>
+          <div class="mb-3">
+            <label for="acc-name-rg" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="acc-name-rg" required />
+          </div>
+          <div class="mb-3">
+            <label for="user-img" class="col-form-label"
+              >Profile Image (optional) :</label
+            >
+            <input type="file" class="form-control" id="user-img" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="close-btn"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button "
+          id="register-btn"
+          class="btn btn-primary"
+          onclick="registerRequest()"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// register Modal //-->
+<!-- New Post Modal -->
+<div
+  class="modal fade"
+  id="create-post-modal"
+  tabindex="-1"
+  aria-labelledby="modal-post-title"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modal-post-title">Create New Post</h1>
+        <button
+          type="button"
+          class="btn-close bg-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="post-title-input" class="col-form-label">Title :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="post-title-input"
+              value=""
+            />
+          </div>
+          <div class="mb-3">
+            <label for="post-description-input" class="col-form-label"
+              >Description :</label
+            >
+            <textarea
+              name=""
+              class="form-control"
+              style="
+                resize: none;
+                height: 100px;
+                border-color: grey;
+                border-radius: 8px;
+                padding: 10px;
+              "
+              id="post-description-input"
+              placeholder="Enter a description for this post"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="post-img-input" class="col-form-label"
+              >Post Image :</label
+            >
+            <input type="file" class="form-control" id="post-img-input" />
+          </div>
+          <div class="mb-3">
+            <label for="hashtag" class="col-form-label">Hashtag :</label>
+            <input type="text" class="form-control" id="post-hashtag-input" />
+          </div>
+          <input type="hidden" value="" id="is-new" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="close-btn"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button "
+          id="submit-btn "
+          class="btn btn-primary create-or-edit"
+          onclick="createOrEditPost()"
+        >
+          Add a new post
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// New Post Modal //-->
+<!-- delete post Modal -->
+<div
+  class="modal fade"
+  id="delete-post-modal"
+  tabindex="-1"
+  aria-labelledby="modal-post-title-d"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modal-post-title-d">
+          Do you really want to delete this post permanently ?
+        </h1>
+        <input type="hidden" id="delete-post-data" class="" />
+        <button
+          type="button"
+          class="btn-close bg-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          id="hide-delete-post-modal"
+        ></button>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="close-btn"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          NO, I Don't
+        </button>
+        <button
+          type="button "
+          id="confim-delete-post-btn "
+          class="btn btn-danger create-or-edit"
+          onclick="confirmDeletePost()"
+        >
+          Yes, Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// delete post Modal //-->
+<!--// ======= Modals ============//-->
+
+<!-- ======= Alert ============-->
+<div id="liveAlertPlaceholder"></div>
+<!--// ======= Alert ============//-->

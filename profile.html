@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A portfolio page for social media platform that you can share your post or add some comments, show others users post and more."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- CSS modules  -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/profile.css" />
+    <!--// CSS modules  //-->
+    <style></style>
+
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="images/logo.jpeg" /> -->
+
+    <title>Profile</title>
+  </head>
+  <body class="border-body">
+    <!-- header -->
+    <nav
+      class="navbar navbar-expand-lg border-body shadow rounded"
+      data-bs-theme="dark"
+    ></nav>
+    <!--// header //-->
+
+    <!-- profile heder -->
+    <div class="__profile-header">
+      <div class="back-image">
+        <img src="./images/chid-play.jpeg" alt="profile-thumbnail" />
+      </div>
+      <div class="__info d-flex">
+        <div class="__profile-image">
+          <img
+            id="user-image"
+            src="./images/default-avatar.png"
+            alt="profile-image"
+          />
+        </div>
+        <div class="__data">
+          <div class="d-flex flex-column mt-2">
+            <span id="user-profile-name"> Osama Youseff </span>
+            <span id="user-email"> osama.os@gmail.com </span>
+          </div>
+          <div class="__other d-flex flex-column h-100 justify-content-between">
+            <span class="__posts">
+              <span id="posts-num">12 </span>
+              Posts
+            </span>
+            <span class="__comm">
+              <span id="comm-num">12 </span>
+              Comment
+            </span>
+          </div>
+          <!-- <span class="__posts-num">Osama Youseff</span> -->
+        </div>
+      </div>
+    </div>
+    <!--// profile heder //-->
+
+    <!-- container -->
+    <div
+      class="container shadow rounded"
+      style="min-height: 100vh; background-color: #242526"
+    >
+      <!-- posts -->
+      <div id="posts" class="px-2 py-3 mx-auto">
+        <!-- Post  -->
+
+        <!--// Post //-->
+      </div>
+      <!--// posts //-->
+    </div>
+    <!--// container //-->
+
+    <div id="modals-alerts"></div>
+    <!-- ======= Add new post button ============-->
+    <div
+      id="new-post-btn"
+      class="bg-primary"
+      title="Add a new post"
+      onclick=" openNewPostModal()"
+    >
+      <span>New Post</span>
+    </div>
+
+    <!--// ======= Add new post button ============//-->
+
+    <!-- javascript modules  -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./JS/function-source.js"></script>
+    <script src="./JS/profile.js"></script>
+    <!--// javascript modules  //-->
+  </body>
+</html>
