@@ -14,6 +14,7 @@ window.addEventListener("load", async function () {
       show_data(currentPostPage);
       fetchModals();
       changeUI();
+      document.querySelector(".nav-link").classList.add("active");
     });
 });
 /////////////////////===== fetching common HTML Elements =====///////////////////////////////////
