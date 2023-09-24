@@ -782,6 +782,7 @@ async function addPostComments(postId) {
   }
 
   let otherCommentContainer = document.getElementById(`comm-${postId}`);
+  otherCommentContainer.innerHTML = "";
 
   for (comm of comments) {
     let profile_image = comm["author"]["profile_image"];
@@ -905,9 +906,9 @@ function showSignInMsg() {
   return;
 }
 
-////////////////////////////////////// == when click  profile btn == //////////////////////////////////////
+////////////////////////////////////// == when click profile btn == //////////////////////////////////////
 
-//////////////////////////////////////  when click  like btn  //////////////////////////////////////
+//////////////////////////////////////  when click like btn  //////////////////////////////////////
 
 function ToggleLike(postId) {
   let like = document.getElementById(`thumb-up-btn-${postId}`);

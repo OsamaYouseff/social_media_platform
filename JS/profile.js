@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const clickedPostId = urlParams.get("postId") || getCurrentUser().id;
+const clickedPostAuthorId = urlParams.get("postId") || getCurrentUser().id;
 
 ///////////////////// fetching common HTML Elements ///////////////////////////////////
 
@@ -11,10 +11,11 @@ window.addEventListener("load", async function () {
       document.querySelector("nav").innerHTML = data;
     })
     .then(() => {
-      changeProfileData(clickedPostId);
+      changeProfileData(clickedPostAuthorId);
       changeUI();
-      show_data(clickedPostId);
+      show_data(clickedPostAuthorId);
       fetchModals();
+      hideAddPostBtnInOthersProfiles();
     });
 });
 
@@ -72,3 +73,15 @@ function changeProfileData(currentUser) {
 }
 
 ////////////////////////////////////// == changing profile data == //////////////////////////////////////
+//////////////////////////////////////  hide add post button in others users profiles  //////////////////////////////////////
+
+function hideAddPostBtnInOthersProfiles() {
+  let addPostBtn = document.getElementById("new-post-btn");
+  if (clickedPostAuthorId != getCurrentUser().id) {
+    addPostBtn.style.display = "none";
+  } else {
+    addPostBtn.style.display = "block";
+  }
+}
+
+////////////////////////////////////// == hide add post button in others users profiles == //////////////////////////////////////
