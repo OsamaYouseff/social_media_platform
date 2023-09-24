@@ -389,7 +389,7 @@ function changeUI() {
 
   let HTMLName = document.location.pathname.slice(1);
 
-  if (HTMLName == "home.html") {
+  if (HTMLName == "index.html") {
     pages[0].classList.add("active");
   }
 

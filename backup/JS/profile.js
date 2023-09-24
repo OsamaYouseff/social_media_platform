@@ -1,8 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const clickedPostId = urlParams.get("postId") || getCurrentUser().id;
 
-
-
 ///////////////////// fetching common HTML Elements ///////////////////////////////////
 
 // Fetch and insert the header
