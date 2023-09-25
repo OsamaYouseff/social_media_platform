@@ -248,7 +248,50 @@ function getCurrentUser() {
 
 ////////////////////////////////////// register //////////////////////////////////////////////
 
-function registerRequest() {
+function validateForm() {
+  var name = document.getElementById("user-name-rg").value;
+  var email = document.getElementById("email-rg").value;
+  var password = document.getElementById("user-password-rg").value;
+
+  // Regular expressions for name, email, and password validation
+  var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+  if (!name.match(/.*[a-zA-Z].*/) || name.match(/[^a-zA-Z0-9]/)) {
+    showStatusNow(
+      "Name must contain only letters , numbers and spaces.❌",
+      "danger",
+      10
+    );
+    return false;
+  }
+
+  if (!email.match(emailRegex)) {
+    showStatusNow("Invalid email address.❌", "danger", 5);
+    return false;
+  }
+
+  if (!password.match(passwordRegex)) {
+    showStatusNow(
+      "Password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter.❌ ",
+      "danger",
+      5
+    );
+    return false;
+  }
+
+  // If all validations pass, the form can be submitted
+  return true;
+}
+
+async function registerRequest() {
+  ////// run form validation
+  // validateForm();
+
+  if (!validateForm()) {
+    return;
+  }
+
   let userNameInput = document.getElementById("user-name-rg").value;
   let userPasswordInput = document.getElementById("user-password-rg").value;
   let accNameInput = document.getElementById("acc-name-rg").value;
@@ -483,7 +526,7 @@ function logoutUpdateUsername() {
 
 ////////////////////////////////////// Login Alert  //////////////////////////////////////////
 
-function showStatusNow(msg, msgType) {
+function showStatusNow(msg, msgType, time = 3) {
   const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
   const appendAlert = (message, type) => {
     const wrapper = document.createElement("div");
@@ -499,7 +542,7 @@ function showStatusNow(msg, msgType) {
   setTimeout(() => {
     document.querySelector(".curr-alert").style.opacity = " 0";
     document.querySelector(".close-alert").click();
-  }, 3 * 1000);
+  }, time * 1000);
 }
 
 //////////////////////////////////////==  Login Alert  ==//////////////////////////////////////////
