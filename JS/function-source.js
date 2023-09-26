@@ -310,7 +310,6 @@ async function registerRequest() {
   axios
     .post(registerRequestUrl, formData)
     .then((response) => {
-      console.log(response);
       localStorage.setItem("login-token", response.data.token);
       localStorage.setItem("user-info", JSON.stringify(response.data.user));
 
@@ -342,6 +341,11 @@ async function registerRequest() {
 function loginRequest() {
   let userName = document.getElementById("user-name").value;
   let userPassword = document.getElementById("user-password").value;
+
+  if (userName.length === 0 || userPassword.length === 0) {
+    showSignInMsg("You can not login with empty data❌", "danger");
+    return;
+  }
 
   let prams = {
     username: `${userName}`,
@@ -869,7 +873,7 @@ function addNewAComment(postId) {
   let postUrl = baseUrl + `/posts/${postId}/comments`;
   let postInput = document.getElementById(`new-comm-input-${postId}`);
   let otherCommentContainer = document.getElementById(`comm-${postId}`);
-  if (postInput.value.length == 0) {
+  if (postInput.value.length === 0) {
     showStatusNow("You can't send an empty comment !! ❌ ", "danger");
     return 0;
   }
