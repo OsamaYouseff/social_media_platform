@@ -343,7 +343,7 @@ function loginRequest() {
   let userPassword = document.getElementById("user-password").value;
 
   if (userName.length === 0 || userPassword.length === 0) {
-    showSignInMsg("You can not login with empty data❌", "danger");
+    showStatusNow("You can not login with empty data ❌", "danger");
     return;
   }
 
