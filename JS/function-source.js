@@ -107,7 +107,7 @@ function addPostToDOM(post, addToTopPosts = false) {
               )}' , ${postId}, ${authorId})"  class="bi bi-three-dots rounded-circle" title="Edit" style="cursor: pointer; margin-right: 4px ; ${showORHideEdit}"></i>
               <i id = "delete-post-btn" onclick="${deleteBtnAction}" class="bi bi-x-lg rounded-circle" title="${
     authorId == currentUsrId ? "Delete" : "Hide"
-  }" style="cursor: pointer"></i>
+  }" style="cursor: pointer;color: white;"></i>
             </div>
           </div>
           <div class="card-body">
@@ -578,13 +578,12 @@ function createOrEditPost() {
     "post-description-input"
   ).value;
   const postImgInput = document.getElementById("post-img-input").files[0];
-  //// todo : how to send tags correctly
   const postHashtagInput = document.getElementById("post-hashtag-input").value;
 
   const formData = new FormData();
   formData.append("title", postTitle);
   formData.append("body", postDescription);
-  formData.append("image", postImgInput); // Get the selected file
+  formData.append("image", postImgInput);
   formData.append("tags", postHashtagInput);
 
   let apiUrl = "";
@@ -731,13 +730,25 @@ function confirmDeletePost() {
 
 function hidePost(postId) {
   document.getElementById(`id-${postId}`).style.display = "none";
-
-  // console.log(postId);
 }
 
 ////////////////////////////////////// == Hide a post == //////////////////////////////////////
 
 ////////////////////////////////////// maximize post image //////////////////////////////////////
+
+document.addEventListener("resize", () => {
+  fitPostImage();
+});
+
+function fitPostImage() {
+  let openedImg = document.querySelector(".card.maximize .body-image img");
+
+  if (openedImg.width >= openedImg.height) {
+    openedImg.style.maxWidth = "100%";
+  } else {
+    openedImg.style.maxHeight = "100%";
+  }
+}
 
 function maximizeImg() {
   if (
@@ -770,8 +781,13 @@ function maximizeImg() {
     document.body.classList.add("disable-scroll");
 
     //// hide nav bar open button & new-post-btn
-    document.querySelector(".open-btn").classList.add("hide");
-    document.getElementById("new-post-btn").classList.add("hide");
+    if (document.querySelector(".open-btn") !== null)
+      document.querySelector(".open-btn").classList.add("hide");
+
+    if (document.getElementById("new-post-btn") !== null)
+      document.getElementById("new-post-btn").classList.add("hide");
+
+    fitPostImage();
   }
 }
 
@@ -794,8 +810,10 @@ function minimizeImg() {
   document.body.classList.remove("disable-scroll");
 
   //// show nav bar open button & new-post-btn
-  document.querySelector(".open-btn").classList.remove("hide");
-  document.getElementById("new-post-btn").classList.remove("hide");
+  if (document.querySelector(".open-btn") !== null)
+    document.querySelector(".open-btn").classList.remove("hide");
+  if (document.getElementById("new-post-btn") !== null)
+    document.getElementById("new-post-btn").classList.remove("hide");
 }
 
 ////////////////////////////////////// maximize post image //////////////////////////////////////
