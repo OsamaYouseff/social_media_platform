@@ -116,7 +116,7 @@ function addPostToDOM(post, addToTopPosts = false) {
             </h4>
             <div
               class="body-image d-flex align-items-center rounded-3 "
-              style="min-height: 315px"
+              style=""
               onclick="maximizeImg()"
             >
               <img

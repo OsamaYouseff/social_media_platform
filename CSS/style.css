@@ -146,7 +146,7 @@ nav {
   color: white !important;
 }
 
-.body-light .__actions  #delete-post-btn {
+.body-light .__actions #delete-post-btn {
   color: black !important;
 }
 @media (max-width: 990px) {
@@ -646,13 +646,13 @@ nav {
 @media (max-width: 767px) {
   .card.maximize {
     width: 100vw !important;
-    height: 80% !important;
-    top: 37.1%;
+    height: 60% !important;
+    top: 39.9%;
   }
 }
 
 .body-image {
-  min-height: 315px;
+  /* min-height: 315px; */
   max-height: 320px;
   top: 50%;
   left: 50%;
@@ -701,11 +701,11 @@ nav {
 
 @media (max-width: 767px) {
   .card.maximize .body-image {
-    top: 18.5% !important;
+    top: 20% !important;
     left: 0% !important;
     transform: translateY(-50%);
     width: 100vw !important;
-    height: 37% !important;
+    height: 40% !important;
     padding: 35px;
   }
   .card.maximize .body-image > img {
@@ -714,11 +714,11 @@ nav {
 }
 @media (max-width: 400px) {
   .card.maximize .body-image {
-    top: 18.5% !important;
+    top: 20% !important;
     left: 0% !important;
     transform: translateY(-50%);
     width: 100vw !important;
-    height: 20% !important;
+    height: 40% !important;
     padding: 35px;
   }
 }
@@ -947,7 +947,9 @@ hr {
 @media (max-width: 475px) {
   .card.maximize .__other-comments {
     height: auto;
-    max-height: 180px;
+    min-height: 180px;
+    height: 200px;
+    max-height: 240px;
   }
 }
 
